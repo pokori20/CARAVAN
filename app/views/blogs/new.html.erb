@@ -1,5 +1,11 @@
 <h1>新規投稿</h1>
-<!-form_with構文--->
+<% if @blog.errors.any? %>
+<%= @blog.errors.count %>
+<%= @blog.errors.full_messages.each do |message| %>
+  <%= message %>
+  <% end %>
+<% end %>
+
 <%= form_with model:@blog, local:true do |f| %>
 
   <h4>タイトル</h4>
